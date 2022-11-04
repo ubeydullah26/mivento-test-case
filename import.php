@@ -12,10 +12,12 @@ $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //Get the file
+ini_set('auto_detect_line_endings',TRUE);
 $fh = fopen($_FILES['csv']['tmp_name'], 'r');
 if (!$fh) {
     die("Dosya açılamadı");
 }
+
 
 //Import row by row
 $stored = [];
@@ -51,6 +53,7 @@ while (($row = fgetcsv($fh, 0, ';')) !== FALSE) {
     }
 }
 
+
 function unique_multidim_array($array, $key)
 {
     $i = 0;
@@ -68,24 +71,12 @@ function unique_multidim_array($array, $key)
 }
 
 $unique_field = ['email', 'employee_id', 'phone'];
-//foreach ($unique_field as $field) {
-//    $stored = unique_multidim_array($stored, $field);
-//}
-//print_r($stored);
-
-function remove_duplicate_multidim_array($array, $keys){
-    $result = array_map("unserialize", array_unique(array_map("serialize", $array)));
-    foreach($result as $key => $value){
-        foreach($keys as $k){
-            unset($result[$key][$k]);
-        }
-    }
-    return $result;
+foreach ($unique_field as $field) {
+    $stored = unique_multidim_array($stored, $field);
 }
+print_r($stored);
 
-//remove_duplicate_multidim_array($stored, $unique_field);
-print_r(remove_duplicate_multidim_array($stored, $unique_field));
 
 //Close the file
+ini_set('auto_detect_line_endings',FALSE);
 fclose($fh);
-echo "Dosya başarıyla yüklendi";
