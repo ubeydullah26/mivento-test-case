@@ -1,8 +1,5 @@
 <?php
 
-//database connection
-include_once 'config/connection.php';
-
 //validation
 if(empty($_POST['name']) || empty($_POST['date'])){
     echo json_encode([
@@ -11,6 +8,9 @@ if(empty($_POST['name']) || empty($_POST['date'])){
     ]);
     exit;
 }
+
+//database connection
+include_once 'config/database.php';
 
 //insert campaigns
 try{

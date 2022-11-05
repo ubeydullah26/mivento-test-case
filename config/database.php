@@ -3,8 +3,8 @@
 //create database
 try{
     $pdo = new PDO("mysql:host=localhost", "root", "");
-    $pdo->exec("CREATE DATABASE IF NOT EXISTS `mivento` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
-    $pdo->exec("USE `mivento`");
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS `ubeydullah_yilmaz_miventokj` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
+    $pdo->exec("USE `ubeydullah_yilmaz_mivento`");
 }catch (PDOException $e){
     echo $e->getMessage();
 }
@@ -14,7 +14,7 @@ try{
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mivento";
+$dbname = "ubeydullah_yilmaz_mivento";
 
 // Create connection
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
