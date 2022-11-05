@@ -3,7 +3,7 @@
 //create database
 try{
     $pdo = new PDO("mysql:host=localhost", "root", "");
-    $pdo->exec("CREATE DATABASE IF NOT EXISTS `ubeydullah_yilmaz_miventokj` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
+    $pdo->exec("CREATE DATABASE IF NOT EXISTS `ubeydullah_yilmaz_mivento` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
     $pdo->exec("USE `ubeydullah_yilmaz_mivento`");
 }catch (PDOException $e){
     echo $e->getMessage();

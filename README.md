@@ -12,7 +12,3 @@ Projeyi çalıştırmak için config/database.php dosyasını kendi host, kullan
     $db = "ubeydullah_yilmaz_mivento";
 ?>
 ```
-
-### Demo
-
-[https://ubeydullahyilmaz.com/mivento/](https://ubeydullahyilmaz.com/mivento/)

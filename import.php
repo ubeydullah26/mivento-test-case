@@ -70,6 +70,7 @@ while (($row = fgetcsv($fh, 0, ';')) !== FALSE) {
     try {
         //insert all data
         $stmt = $pdo->prepare("INSERT INTO employees (`campaign_id`, `name`, `surname`, `email`, `employee_id`, `phone`, `point`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO employees (`campaign_id`, `name`, `surname`, `email`, `employee_id`, `phone`, `point`) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([
             $last_id,
             $row["name"],
